@@ -6,3 +6,7 @@ body {
 a {
   color: #00b7ff;
 }
+
+select {
+  width: 300px;
+}

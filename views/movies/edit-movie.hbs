@@ -1,0 +1,33 @@
+<h2>Edit movie: {{movie.title}}</h2>
+
+<form action="/movies/{{movie._id}}/edit" method="post">
+  <label>Title
+    <input type="text" name="title" value="{{title}}" />
+  </label>
+
+  {{! O name define o que vai ser criado,
+   tem de ser baseado no Book.model }}
+
+  <label>
+    Genre
+    <input type="text" name="genre" value="{{movie.genre}}" />
+  </label>
+
+  <label>
+    Plot
+    <textarea name="plot" cols="30" rows="4">{{movie.plot}}</textarea>
+  </label>
+
+  <label>Cast:
+    <select multiple name="cast">
+      {{#each movie.cast}}
+        <option selected value="{{_id}}">{{name}}</option>
+      {{/each}}
+      {{#each celeb2}}
+        <option value="{{_id}}">{{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+
+  <button type="submit">Save</button>
+</form>
